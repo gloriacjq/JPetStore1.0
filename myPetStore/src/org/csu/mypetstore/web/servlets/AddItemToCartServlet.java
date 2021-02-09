@@ -15,15 +15,11 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class AddItemToCartServlet extends HttpServlet {
-
-    //1. 处理完请求后的跳转页面
     private static final String VIEW_CART = "/WEB-INF/jsp/cart/Cart.jsp";
 
-    //2. 定义处理该请求所需要的数据
     private String workingItemId;
     private Cart cart;
 
-    //3. 是否需要调用业务逻辑层
     private CatalogService catalogService;
     private CartService cartService;
     private LogService logService;
@@ -63,7 +59,6 @@ public class AddItemToCartServlet extends HttpServlet {
             logService = new LogService();
             logService.insertLog(((Account)session.getAttribute("account")).getUsername(), "Add Item "+ workingItemId + " to cart");
         }
-
 
         session.setAttribute("cart", cart);
         request.getRequestDispatcher(VIEW_CART).forward(request, response);

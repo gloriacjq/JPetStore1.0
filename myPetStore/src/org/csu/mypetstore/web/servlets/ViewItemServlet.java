@@ -33,6 +33,7 @@ public class ViewItemServlet extends HttpServlet {
             logService.insertLog(((Account)session.getAttribute("account")).getUsername(), "View item " + itemId);
         }
         session.setAttribute("item",item);
+        session.setAttribute("product", item.getProduct());
 
         request.getRequestDispatcher(VIEW_ITEM).forward(request,response);
     }

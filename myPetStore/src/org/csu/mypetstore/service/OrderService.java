@@ -17,14 +17,12 @@ public class OrderService {
     private ItemDAO itemDAO;
     private OrderDAO orderDAO;
     private OrderStatusDAO orderStatusDAO;
-    private SequenceDAO sequenceDAO;
     private LineItemDAO lineItemDAO;
 
     public OrderService(){
         itemDAO = new ItemDAOImpl();
         orderDAO = new OrderDAOImpl();
         orderStatusDAO = new OrderStatusDAOImpl();
-        sequenceDAO = new SequenceDAOImpl();
         lineItemDAO = new LineItemDAOImpl();
     }
 
@@ -45,7 +43,6 @@ public class OrderService {
         return orderDAO.getOrdersByUsername(username);
     }
 
-
     public void insertOrder(Order order) {
         order.setOrderId(getOrderId());
         Map<String, Object> param = new HashMap<String, Object>();
@@ -64,22 +61,8 @@ public class OrderService {
         orderStatusDAO.insertOrderStatus(order);
     }
 
-
-    public int getNextId(String name) {
-      Sequence sequence = new Sequence(name, -1);
-      sequence = (Sequence) sequenceDAO.getSequence(sequence);
-      if (sequence == null) {
-        throw new RuntimeException("Error: A null sequence was returned from the database (could not get next " + name
-            + " sequence).");
-      }
-      Sequence parameterObject = new Sequence(name, sequence.getNextId() + 1);
-      sequenceDAO.updateSequence(parameterObject);
-      return sequence.getNextId();
-    }
-
     public int getOrderId(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMddHHmmss");
         return Integer.parseInt(dateFormat.format(new Date().getTime()));
     }
-
 }

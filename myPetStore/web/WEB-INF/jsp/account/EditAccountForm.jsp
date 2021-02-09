@@ -1,6 +1,7 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
-<div id="Catalog"><form action="editAccount" method="post">
+<div id="Catalog">
+<form action="editAccount" method="post">
 
 	<h3>User Information</h3>
 

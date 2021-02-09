@@ -30,7 +30,7 @@ public class NewOrderFormServlet extends HttpServlet {
         cart = (Cart)session.getAttribute("cart");
 
         if (account == null){
-            session.setAttribute("message", "You must sign on before attempting to check out.  Please sign on and try checking out again.");
+            session.setAttribute("message", "You must sign in before attempting to check out.  Please sign in and try checking out again.");
             request.getRequestDispatcher(SIGN_IN_FORM).forward(request, response);
         }else if(cart != null){
             order = new Order();
@@ -38,7 +38,7 @@ public class NewOrderFormServlet extends HttpServlet {
             session.setAttribute("order", order);
             request.getRequestDispatcher(NEW_ORDER_FORM).forward(request, response);
         }else{
-            session.setAttribute("message", "An order could not be created because a cart could not be found.");
+            session.setAttribute("message", "Order fails to be created because the cart is not found.");
             Account account = (Account)session.getAttribute("account");
             request.getRequestDispatcher(ERROR).forward(request, response);
         }

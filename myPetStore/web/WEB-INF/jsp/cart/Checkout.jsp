@@ -7,21 +7,19 @@
 <div id="Catalog">
 
 <form action="newOrderForm" method="post">
-<table>
-	<tr>
-		<td>
+	<table>
 		<h2>Checkout Order</h2>
 
 		<table>
 
 			<tr>
-				<td><b>Item ID</b></td>
-				<td><b>Product ID</b></td>
-				<td><b>Description</b></td>
-				<td><b>In Stock?</b></td>
-				<td><b>Quantity</b></td>
-				<td><b>List Price</b></td>
-				<td><b>Total Cost</b></td>
+				<th><b>Item ID</b></th>
+				<th><b>Product ID</b></th>
+				<th><b>Description</b></th>
+				<th><b>In Stock?</b></th>
+				<th><b>Quantity</b></th>
+				<th><b>List Price</b></th>
+				<th><b>Total Cost</b></th>
 			</tr>
 
 			<c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
@@ -51,13 +49,11 @@
 				</td>
 			</tr>
 		</table>
-
+		<br/>
 		<td>
 			<input type="submit" value="Submit Order"/>
 		</td>
-
-	</tr>
-</table>
+	</table>
 </form>
 
 </div>

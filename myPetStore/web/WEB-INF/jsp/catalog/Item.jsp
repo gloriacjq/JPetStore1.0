@@ -6,7 +6,7 @@
 
 <div id="Catalog">
 
-<table>
+<table id="ItemTable">
 	<tr>
 		<td>${sessionScope.product.description}</td>
 	</tr>

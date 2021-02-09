@@ -25,7 +25,6 @@ public class SignInServlet extends HttpServlet {
     private String password;
     private Cart cart;
 
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
@@ -61,8 +60,6 @@ public class SignInServlet extends HttpServlet {
             return;
         }
 
-
-
         //用户登录
         accountService = new AccountService();
         account = accountService.getAccount(username, password);
@@ -89,10 +86,7 @@ public class SignInServlet extends HttpServlet {
             session.setAttribute("signInMessage", signInMessage);
             session.setAttribute("account", account);
             session.setAttribute("cart", cart);
-            //if(account.isBannerOption()) session.setAttribute("bannerName", account.getBannerName());
-            //request.getRequestDispatcher(MAIN).forward(request, response);
             response.sendRedirect("/main");
         }
-
     }
 }
