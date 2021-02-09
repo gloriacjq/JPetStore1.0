@@ -59,12 +59,10 @@
 			<div id="searchProduct">
 				<form action="searchProduct" method="post" onsubmit="return checkSearch()">
                     <div class="ui-widget">
-<%--                        <label for="searchKeyword">Search: </label>--%>
                         <input id="searchKeyword" name = "keyword" size="14">
                         <input type="submit" name="searchProducts" value="Search" />
                         <script type="text/javascript" src="js/checkSearch.js"></script>
                     </div>
-<%--                    <input type="text" name="keyword" size="14" />--%>
 				</form>
 			</div>
 		</div>

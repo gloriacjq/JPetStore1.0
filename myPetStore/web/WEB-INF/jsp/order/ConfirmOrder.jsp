@@ -4,8 +4,8 @@
 	<a href="main">Return to Main Menu</a>
 </div>
 
-<div id="Catalog">Please confirm the information below and then press confirm button to submit...
-
+<div id="Catalog">
+	<p>Please confirm the information below and then press confirm button to submit...</p>
 <table>
 	<tr>
 		<th align="center" colspan="2"><font size="4"><b>Order</b></font>
@@ -88,9 +88,8 @@
 	</tr>
 
 </table>
-	<!--verification code here-->
+	<br/>
 	<a class="Button" href="confirmOrder">Confirm</a>
-
 </div>
 
 <%@ include file="../common/IncludeBottom.jsp"%>

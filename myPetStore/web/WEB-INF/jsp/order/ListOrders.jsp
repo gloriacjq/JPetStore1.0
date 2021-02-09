@@ -1,5 +1,6 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
+<div id = "Catalog">
 <h2>My Orders</h2>
 
 <table align="center">
@@ -23,7 +24,7 @@
 		</tr>
 	</c:forEach>
 </table>
-
+</div>
 <%@ include file="../common/IncludeBottom.jsp"%>
 
 

@@ -40,6 +40,4 @@ public class ViewCategoryServlet extends HttpServlet {
 
         request.getRequestDispatcher(VIEW_CATEGORY).forward(request,response);
     }
-
-
 }

@@ -43,14 +43,6 @@
 				</td>
 			</tr>
 
-<%--			<c:if test="${sessionScope.pwdMessage != null}">--%>
-<%--			<tr>--%>
-<%--				<td colspan="2">--%>
-<%--						<h4 color="red">${sessionScope.pwdMessage}</h4>--%>
-<%--				</td>--%>
-<%--			</tr>--%>
-<%--			</c:if>--%>
-
 		</table>
 
 		<%@ include file="IncludeAccountFields.jsp"%>

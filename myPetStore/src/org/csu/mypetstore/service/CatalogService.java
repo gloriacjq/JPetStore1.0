@@ -24,7 +24,6 @@ public class CatalogService {
         itemDAO = new ItemDAOImpl();
     }
 
-
     public List<Category> getCategoryList() {
         return categoryDAO.getCategoryList();
     }
@@ -41,7 +40,6 @@ public class CatalogService {
         return productDAO.getProductListByCategory(categoryId);
     }
 
-    // TODO enable using more than one keyword
     public List<Product> searchProductList(String keyword) {
         return productDAO.searchProductList("%" + keyword.toLowerCase() + "%");
     }
@@ -57,5 +55,4 @@ public class CatalogService {
     public boolean isItemInStock(String itemId) {
         return itemDAO.getInventoryQuantity(itemId) > 0;
     }
-
 }

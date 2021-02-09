@@ -12,7 +12,6 @@ public class AccountService {
         accountDAO = new AccountDAOImpl();
     }
 
-
     public Account getAccount(String username) {
         return accountDAO.getAccountByUsername(username);
     }
@@ -35,5 +34,4 @@ public class AccountService {
             accountDAO.updateSignon(account);
         }
     }
-
 }

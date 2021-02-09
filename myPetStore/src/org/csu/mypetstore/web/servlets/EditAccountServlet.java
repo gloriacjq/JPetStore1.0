@@ -34,7 +34,7 @@ public class EditAccountServlet extends HttpServlet {
 
             account = (Account)session.getAttribute("account");
 
-            //account.setUsername(request.getParameter("username"));
+            account.setUsername(request.getParameter("username"));
             account.setPassword(request.getParameter("password") != null ? request.getParameter("password") : account.getPassword());
             account.setFirstName(request.getParameter("firstName"));
             account.setLastName(request.getParameter("lastName"));
@@ -60,6 +60,5 @@ public class EditAccountServlet extends HttpServlet {
             session.setAttribute("signInMessage", "welcome, "+ account.getUsername());
             request.getRequestDispatcher(EDIT_ACCOUNT_FORM).forward(request, response);
         }
-
     }
 }

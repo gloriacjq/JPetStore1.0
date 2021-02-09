@@ -18,24 +18,23 @@ public class VerificationCodeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        //声明验证码
         int width = 60;
         int height = 30;
-        String data = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789abcdefghijklmnpqrstuvwxyz";    //随机字符字典，其中0，o，1，I 等难辨别的字符最好不要
-        Random random = new Random();//随机类
-        //1 创建图片数据缓存区域（核心类）
+        //随机字符字典，去掉了0，o，1，I 等易混淆字符
+        String data = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789abcdefghijklmnpqrstuvwxyz";
+        Random random = new Random();
+        //1 创建图片数据缓存区域
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);//创建一个彩色的图片
-        //2 获得画板(图片，ps图层)，绘画对象。
+        //2 获得画板(图片，ps图层)，创建绘制对象
         Graphics g = image.getGraphics();
-        //3 选择颜色，画矩形3，4步是画一个有内外边框的效果
+        //3 绘制黑色外边框
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, width, height);
-        //4白色矩形
+        //4 绘制白色内边框
         g.setColor(Color.WHITE);
         g.fillRect(1, 1, width-2, height-2);
 
-        /**1 提供缓存区域，为了存放4个随机字符，以便存入session */
+        /*  1 提供缓存区域，为了存放4个随机字符，以便存入session */
         StringBuilder builder = new StringBuilder();
 
         //5 随机生成4个字符
@@ -49,7 +48,7 @@ public class VerificationCodeServlet extends HttpServlet {
             int index = random.nextInt(data.length());
             String str = data.substring(index, index + 1);
 
-            /**2 缓存*/
+            /*2 缓存*/
             builder.append(str);
 
             //写入
@@ -61,14 +60,11 @@ public class VerificationCodeServlet extends HttpServlet {
             g.fillRect(random.nextInt(width),random.nextInt(height),1,1);//随机噪音点
         }
 
-
-        /**3 获得随机数据，并保存session*/
+        /*3 获得随机数据，保存至session*/
         String tempStr = builder.toString();
         request.getSession().setAttribute("sessionCacheData",tempStr);
 
-
-        //.. 生成图片发送到浏览器 --相当于下载
+        //  将图片写至浏览器
         ImageIO.write(image, "jpg", response.getOutputStream());
     }
-
 }
